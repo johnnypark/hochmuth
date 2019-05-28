@@ -19,13 +19,15 @@ function onYouTubeIframeAPIReady() {
             'controls': 0,
             'rel' : 0,
             'fs' : 0,
-            'modestbranding': true
+            'modestbranding': true,
+            'showinfo': 0
         }
     });
 }
 
 function onPlayerReady(event) {
-    event.target.playVideo();
+    //event.target.playVideo();
+    player.play();
     frame();
 }
 
@@ -49,6 +51,9 @@ function frame() {
         if(player.getCurrentTime() > 5 && player.getCurrentTime() < 40) {
             moveCablecar(player.getCurrentTime() - 5);
         }
+        if(player.getCurrentTime() > 40 && player.getCurrentTime() < duration - 40) {
+            moveLayer1(player.getCurrentTime() - 40);
+        }
         //console.log(player.getCurrentTime() + " of " + duration);
     }
     window.requestAnimationFrame(frame);
@@ -59,4 +64,11 @@ function moveCablecar(time) {
         .css("background-position",
             "bottom " + (-475 + speed_y * time) + "px " +
             "left " + (-2000 + speed_x * time) + "px");
+}
+
+function moveLayer1(time) {
+    $("#layer1")
+        .css("background-position",
+            "bottom " + (-speed_y * time) + "px " +
+            "left " + (-20 - speed_x * time) + "px");
 }
