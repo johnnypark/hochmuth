@@ -12,7 +12,19 @@
 </head>
 <body>
     <div class="h-flex">
-        <div id="video"></div>
+        <div id="main-wrapper">
+            <div id="video">
+
+            </div>
+            <div id="nav">
+                <div class="icon" onclick="setPlayerPosition(0)"><img src="assets/1_house.svg" /></div>
+                <div class="icon" onclick="setPlayerPosition(30)"><img src="assets/2_mountain.svg" /></div>
+                <div class="icon" onclick="setPlayerPosition(70)"><img src="assets/3_castle.svg" /></div>
+                <div class="icon" onclick="setPlayerPosition(200)"><img src="assets/4_tower.svg" /></div>
+                <div class="icon" onclick="setPlayerPosition(230)"><img src="assets/5_paraglider.svg" /></div>
+                <div class="icon" onclick="setPlayerPosition(260)"><img src="assets/6_house.svg" /></div>
+            </div>
+        </div>
         <div id="sidebar-wrapper" class="v-flex">
             <div id="svg-map">
                 <div class="layer" id="cablecar"></div>
@@ -21,15 +33,6 @@
             <div id="statistics"></div>
             <div id="map"></div>
         </div>
-    </div>
-
-    <div id="nav">
-        <div class="icon" onclick="setPlayerPosition(0)"><img src="assets/1_house.svg" /></div>
-        <div class="icon" onclick="setPlayerPosition(30)"><img src="assets/2_mountain.svg" /></div>
-        <div class="icon" onclick="setPlayerPosition(70)"><img src="assets/3_castle.svg" /></div>
-        <div class="icon" onclick="setPlayerPosition(200)"><img src="assets/4_tower.svg" /></div>
-        <div class="icon" onclick="setPlayerPosition(230)"><img src="assets/5_paraglider.svg" /></div>
-        <div class="icon" onclick="setPlayerPosition(260)"><img src="assets/6_house.svg" /></div>
     </div>
 
     <!--<footer>

@@ -47,6 +47,8 @@ function frame() {
             duration = player.getDuration();
         }
 
+        setMarkerPosition(player.getCurrentTime());
+
         /*if(player.getCurrentTime() > 5 && player.getCurrentTime() < 40) {
             moveCablecar(player.getCurrentTime() - 5);
         }
@@ -64,18 +66,39 @@ function setPlayerPosition(mark)
     player.seekTo(mark);
 }
 
-var map;
+let map, marker,
+    start = [46.696327, 11.151976],
+    end = [46.702413, 11.131737];
 $("document").ready(function() {
-    var map = L.map('map').setView([51.505, -0.09], 13);
-    //https://api.mapbox.com/styles/v1/jonas-tum/cjwg8opkd01rl1cqqd685odt4/wmts?access_token=pk.eyJ1Ijoiam9uYXMtdHVtIiwiYSI6ImNqbm4yNGt2dzIyNHUzd29zaXdnZ2tnMzgifQ.dp77LW08dWvM3FD2olnfDg
-    L.tileLayer('https://api.mapbox.com/styles/v1/{user}/{id}/wmts?access_token={accessToken}', {
+    var map = L.map('map');
+    L.tileLayer('https://api.mapbox.com/styles/v1/{user}/{id}/tiles/256/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
         user: 'jonas-tum',
         id: 'cjwg8opkd01rl1cqqd685odt4',
         accessToken: 'pk.eyJ1Ijoiam9uYXMtdHVtIiwiYSI6ImNqbm4yNGt2dzIyNHUzd29zaXdnZ2tnMzgifQ.dp77LW08dWvM3FD2olnfDg'
     }).addTo(map);
+
+    map.fitBounds([start, end], {padding: [25, 25]});
+
+    var icon = L.icon({
+        iconUrl: 'assets/cablecar.svg',
+        iconSize: [30, 30],
+        iconAnchor: [15, 15]
+    });
+
+    marker = L.marker(start, {
+        icon: icon
+    });
+    marker.addTo(map);
+
 });
+
+function setMarkerPosition(mark)
+{
+    let time = Math.max(0, ((mark-5) / (duration-5)));
+    marker.setLatLng([start[0] + (end[0] - start[0]) * time, start[1] + (end[1] - start[1]) * time]);
+}
 
 
 /*function moveCablecar(time)
