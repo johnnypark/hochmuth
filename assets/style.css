@@ -144,26 +144,22 @@ html, body {
     background: green;
 }
 
-/*.layer
+footer
 {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
+    bottom: 0;
+    left: 0;
+    color: #666666;
+    font-size: 0.6em;
 }
 
-#cablecar
+a, a:visited, a:active
 {
-    background-image: url(cablecar.svg);
-    background-size: 100%;
-    background-position: bottom -475px left -2000px;
+    color: #999999;
+    text-decoration: underline;
 }
 
-#layer1
+a:hover
 {
-    background-image: url(layer1.svg);
-    background-size: 4000px 1199px;
-    background-position: bottom 0 left -20px;
-}*/
+    text-decoration: none;
+}

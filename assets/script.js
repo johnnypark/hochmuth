@@ -6,8 +6,7 @@ function onYouTubeIframeAPIReady() {
         host: 'https://www.youtube-nocookie.com',
         videoId: 'slg_vxzfnus',
         events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
+            'onReady': onPlayerReady
         },
         playerVars: {
             'controls': 0,
@@ -22,15 +21,6 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
     event.target.playVideo();
     frame();
-}
-
-function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING) {
-        console.log("playing");
-    }
-    if (event.data === YT.PlayerState.PAUSED) {
-        console.log("paused");
-    }
 }
 
 let duration = 0;
