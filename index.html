@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <script src="assets/script.js"></script>
 </head>
 <body>
@@ -26,11 +28,19 @@
             </div>
         </div>
         <div id="sidebar-wrapper" class="v-flex">
-            <div id="svg-map">
+            <!--<div id="svg-map">
                 <div class="layer" id="cablecar"></div>
                 <div class="layer" id="layer1"></div>
+            </div>-->
+            <div id="statistics">
+                <svg viewBox="0 0 500 200" id="svgChart"></svg>
+                <div id="values">
+                    <div class="value vtime">Time on board: <span id="time"></span>min</div>
+                    <div class="value vheight">Height over sea level: <span id="height"></span>m</div>
+                    <div class="value vtemp">Outside Temperature: <span id="temp"></span>°</div>
+                    <div class="value vpop">People on board: <span id="pop"></span></div>
+                </div>
             </div>
-            <div id="statistics"></div>
             <div id="map"></div>
         </div>
     </div>
