@@ -34,6 +34,7 @@ function frame() {
         setMarkerPosition(player.getCurrentTime());
         setLinePosition(player.getCurrentTime());
         setValues(player.getCurrentTime());
+        setMiniMapPosition(player.getCurrentTime());
     }
     window.requestAnimationFrame(frame);
 }
@@ -78,8 +79,15 @@ $("document").ready(function() {
 
 function setMarkerPosition(mark)
 {
-    let time = Math.max(0, ((mark-5) / (duration-5)));
+    let time = Math.max(0, ((mark-8) / (duration-8)));
     marker.setLatLng([start[0] + (end[0] - start[0]) * time, start[1] + (end[1] - start[1]) * time]);
+}
+
+function setMiniMapPosition(mark)
+{
+    let gend = [4200, -1135];
+    let time = Math.max(0, ((mark-8) / (duration-8)));
+    $("#gondel").attr("transform", "translate(" + gend[0] * time + " " + gend[1] * time + ")");
 }
 
 let graphData = [
